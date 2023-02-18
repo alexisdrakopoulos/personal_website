@@ -1,9 +1,9 @@
 baseURL = 'http://example.org/'
 languageCode = 'en-us'
 title = 'My New Hugo Site'
-theme = ["hugo-notice", "poison"]
+theme = ["hugo-notice2", "poison"]
 paginate = 10
-pluralizelisttitles = false       # removes the automatically appended "s" on sidebar entries
+pluralizelisttitles = false        # removes the automatically appended "s" on sidebar entries
 
 [params]
 brand = "Alexis Drakopoulos"              # name of your site - appears in the sidebar
