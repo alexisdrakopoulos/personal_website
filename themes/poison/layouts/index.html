@@ -1,0 +1,39 @@
+{{ define "main" -}}
+
+<h1 class="post-title">Personal Site</h1>
+<br>
+<p>
+    Hi! I'm an ML Engineer passionate about writing clean maintainable code.
+</p>
+
+<p>My interests range from low latency/high performance systems to higher level topics such as design patterns & system
+    design.</p>
+
+<p>I am also interested in various areas of mathematics such as statistical learning, numerically stable modelling &
+    probabilistic programming.</p>
+
+<p>You can download my resume here:</p>
+<a href=resume/alexis_resume.pdf class="btn" target="_blank" data-wipe="Download CV">Download
+    CV</a>
+<p>You can also e-mail me directly at <a
+        href="mailto:alexis.drakopoulos95@gmail.com">alexis.drakopoulos95@gmail.com</a>.
+</p>
+
+<p>
+    I enjoy writing blog posts on various topics, usually relating to Python in some way.
+    You can check out the various series of blogs that I have written, or you can check out some of my recent posts
+    below
+</p>
+
+<h1>Recent Posts</h1>
+<br>
+
+<div class="posts">
+    {{ range where .Paginator.Pages "Section" "eq" "posts" }}
+    {{ partial "post/smaller_info.html" . }}
+    {{- end }}
+</div>
+
+
+{{ partial "pagination.html" . }}
+{{- end }}

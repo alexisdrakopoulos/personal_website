@@ -1,0 +1,32 @@
+<div class="info">
+    <h2 class="post-title no-bottom-margin">
+        <a href="{{ .Permalink }}">{{ .Title }}</a>
+    </h2>
+    <time datetime="{{ .Date.Format " 2006-01-02T15:04:05Z0700" }}" class="post-date no-bottom-margin">
+        {{ .Date.Format "January 2, 2006" }}
+    </time>
+    <p class="no-bottom-margin">Reading time: {{ .ReadingTime }} minute{{ if (ne .ReadingTime 1) }}s{{ end }}</p>
+
+    {{ if .Params.tags }}
+    <ul class="tags no-bottom-margin">
+        {{ range .Params.tags }}
+        <li class="tag-{{ . }}">
+            <a href="{{ " tags/" | absLangURL }}{{ . | urlize }}">{{ . }}</a>
+        </li>
+        {{ end }}
+    </ul>
+    {{ end }}
+
+    {{ $Site := .Site }}
+    {{ if .Params.series }}
+    <p class="seriesname">
+        Series: <a href="{{ $Site.BaseURL }}series/{{ .Params.series | urlize }}">{{ .Params.series }}</a>
+    </p>
+    {{ end }}
+
+    {{ if .Params.featuredImage }}
+    <p>
+        <img src="{{.Params.featuredImage}}"><br>
+    </p>
+    {{ end }}
+</div>

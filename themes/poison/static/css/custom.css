@@ -1,0 +1,128 @@
+/* Horizontal Line on CV page */
+.low-line {
+    width: 100%;
+    border-bottom: 2px solid #000;
+    line-height: 0.6em;
+    margin: 10px -5px 12px;
+}
+
+.remove-line {
+    background: #fff;
+    padding: 0 5px;
+}
+
+.heading-line {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    margin: 0px;
+}
+
+.job-title {
+    margin: 0px;
+}
+
+.job-date {
+    margin: 0px;
+    font-style: italic;
+    font-weight: 100;
+}
+
+.cv-entry {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+/* ----------------------------------------------------------------
+	Download Button Animation
+-----------------------------------------------------------------*/
+
+/**
+   Coded by /u/j0be in scss.
+   See scss source here -> https://codepen.io/j0be/pen/MKRVyN
+*/
+
+.box-padding {
+    margin-right: 28px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+[data-wipe] {
+    display: inline-block;
+    padding: 12px 18px;
+    text-decoration: none;
+    position: relative;
+    border: 2px solid #445561;
+    border-radius: 3px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    text-align: left;
+    color: #445561;
+    overflow: hidden;
+}
+
+[data-wipe]:before,
+[data-wipe]:after {
+    content: attr(data-wipe);
+    padding-top: inherit;
+    padding-bottom: inherit;
+    white-space: nowrap;
+    position: absolute;
+    top: 0;
+    overflow: hidden;
+    color: #F1F1F2;
+    background: #445561;
+}
+
+[data-wipe]:before {
+    left: 0;
+    text-indent: 18px;
+    width: 0;
+}
+
+[data-wipe]:after {
+    padding-left: inherit;
+    padding-right: inherit;
+    left: 100%;
+    text-indent: calc(-100% - 36px);
+    transition: 0.2s ease-in-out;
+}
+
+[data-wipe]:hover:before {
+    width: 100%;
+    transition: width 0.2s ease-in-out;
+}
+
+[data-wipe]:hover:after {
+    left: 0;
+    text-indent: 0;
+    transition: 0s 0.2s ease-in-out;
+}
+
+
+/**
+   Change text selection color to green
+*/
+::-moz-selection {
+    color: #222;
+    background: #3afcac;
+}
+
+::selection {
+    color: #222;
+    background: #3afcac;
+}
+
+.no-bottom-margin {
+    margin-bottom: 0 !important;
+}

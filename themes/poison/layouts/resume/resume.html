@@ -1,0 +1,113 @@
+{{ define "main" -}}
+{{ if .Site.Params.light_dark }}
+{{ partial "light_dark.html" . }}
+{{ end }}
+<div class="post">
+    <h1 class="post-title">Resume</h1>
+
+    <!-- Download button & contact details -->
+    <br>
+    <div class="heading-line">
+        <a href=alexis_resume.pdf class="btn" target="_blank" data-wipe="Download CV">Download
+            CV</a>
+        <h4 class="job-title">+44 7413535033 - alexis.drakopoulos95@gmail.com</h4>
+    </div>
+    <br>
+
+    <!--------------- WORK EXPERIENCE ------------->
+    <h2 class="low-line"><span class="remove-line">Work Experience</span></h2>
+
+    <!-- FIRST JOB -->
+    <div class="cv-entry">
+        <div class="heading-line">
+            <h3 class="job-title">Machine Learning Engineer</h3>
+            <h3 class="job-date">Jan 2022 - Current</h3>
+        </div>
+        <a href="https://www.wovenlight.com/" target="_blank"><span class="yellow-underline">WovenLight</span></a>
+        <p><span class="bold">Technologies:</span> Python, Docker, Terraform, GCP, Databricks
+        <ul>
+            <li>Driving the development of an ML toolkit aimed at improving code re-use, integrate best practices &
+                reduce
+                maintenance
+                complexity.</li>
+            <li>Development of re-usable & testable modular ML solutions.</li>
+            <li>Improving workflows & best practices through refining design patterns.</li>
+            <li>Lead PoC on a webscraping & NLP model for textual company similarity.</li>
+        </ul>
+        </p>
+    </div>
+
+    <!-- SECOND JOB -->
+    <div class="cv-entry">
+        <div class="heading-line">
+            <h3 class="job-title">Machine Learning Engineer</h3>
+            <h3 class="job-date">Sep 2020 - Jan 2022</h3>
+        </div>
+        <a href="https://www.intellegens.com/" target="_blank"><span class="yellow-underline">Intellegens</span></a>
+        <p><span class="bold">Technologies:</span> Python, Docker, Kubernetes, Terraform
+        <ul>
+            <li>Developed interpretable AI guided design of experiments tooling which reduced customer R&D time.</li>
+            <li>R&D on statistical learning models for high performance imputation of sparse tabular data.</li>
+            <li>Introduced & developed model performance monitoring for core custom ML model.</li>
+            <li>Lead on several client projects delivering custom ML functionality.</li>
+            <li>Backend work implementing ML endpoints for core ML platform.</li>
+        </ul>
+        </p>
+    </div>
+
+    <!-- THIRD JOB -->
+    <div class="cv-entry">
+        <div class="heading-line">
+            <h3 class="job-title">Machine Learning Intern - Computer Vision</h3>
+            <h3 class="job-date">Apr - Sep 2020</h3>
+        </div>
+        <a href="https://www.visiolab.com/" target="_blank"><span class="yellow-underline">VisioLab</span></a>
+        <p><span class="bold">Technologies:</span> Python, AWS
+        <ul>
+            <li>Development of a novel deep metric learning model for few-shot classification on edge-devices.</li>
+            <li>Drove development of core computer vision model from theory to production.</li>
+        </ul>
+        </p>
+    </div>
+
+    <!-- FIRST JOB -->
+    <div class="cv-entry">
+        <div class="heading-line">
+            <h3 class="job-title">Machine Learning Intern</h3>
+            <h3 class="job-date">Aug - Nov 2018</h3>
+        </div>
+        <p>Implementing statistical & machine learning functionality for internal sensor data analysis platform.</p>
+    </div>
+
+    <!-- FIRST JOB -->
+    <div class="cv-entry">
+        <div class="heading-line">
+            <h3 class="job-title">Research Assistant</h3>
+            <h3 class="job-date">May - Aug 2017</h3>
+        </div>
+        <p>Additive Manufacturing research on laser melt-pool interaction with Manchester University.</p>
+    </div>
+
+    <h2 class="post-title low-line"><span class="remove-line">Education</span></h2>
+
+    <div class="cv-entry">
+        <div class="heading-line">
+            <h3 class="job-title">MSc Computational Applied Mathematics</h3>
+            <h3 class="job-date">Sep 2020</h3>
+        </div>
+        <a href="https://www.wovenlight.com/" target="_blank"><span class="yellow-underline">University of
+                Edinburgh</span></a>
+    </div>
+
+    <div class="cv-entry">
+        <div class="heading-line">
+            <h3 class="job-title">BSc Mathematics & Physics</h3>
+            <h3 class="job-date">Sep 2019</h3>
+        </div>
+        <a href="https://www.wovenlight.com/" target="_blank"><span class="yellow-underline">University of
+                Strathclyde</span></a>
+    </div>
+
+    <h2 class="post-title low-line"><span class="remove-line">Languages & Technologies</span></h2>
+</div>
+{{ end }}
