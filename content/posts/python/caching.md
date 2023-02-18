@@ -8,7 +8,7 @@ tags: ["python"]
 
 [Caching](https://en.wikipedia.org/wiki/Cache_(computing)) is an often overlooked yet performance critical component of most modern software.
 
-In this article we will show various tools to introduce caching into your Python code. We will also give examples as to where and what problems caching solutions solve in the real world.
+In this article we will discuss caching in a Python context, as well as give examples as to where and what problems caching solutions solve in the real world.
 
 We will start by looking at custom implementations using both the [standard library](https://docs.python.org/3/library/) as well as exploring third party options, before moving onto more enterprise solutions involving tools such as [Redis](https://redis.io/).
 
