@@ -8,7 +8,9 @@ tags: ["python"]
 
 As part of our low-level CPython series exploring the standard library we will explore functools caching functionality! Specifically [LRU cache](https://en.wikipedia.org/wiki/Cache_replacement_policies#Least_recently_used_(LRU)).
 
-***Note: Code from the CPython library shown in this (and other) posts is usually stripped down to its essentials for ease of communication but always referenced! In this case we removed some args and thus some annoying branches to focus on the core implementation.***
+{{< notice note >}}
+Code from the CPython library shown in this (and other) posts is usually stripped down to its essentials for ease of communication but always referenced! In this case we removed some args and thus some annoying branches to focus on the core implementation.
+{{< /notice >}}
 
 ## Python Cache
 
@@ -153,7 +155,7 @@ Ignoring the special case the function can essentially be reduced to:
 def simple_key(args, kwargs):
     return _HashedSeq(args + (object(),) + tuple([item for item in kwargs.items()]))
 ```
-
+{{< notice note >}}
 ***Interesting factoid alert! The following will result in two caches!***
 ```python
 cached_add(x=1, y=2)
@@ -162,6 +164,7 @@ cached_add.cache_info()
 # >>> CacheInfo(hits=0, misses=2, maxsize=128, currsize=2)
 ```
 ***This is due to the fact that sorting of keyword args was switched off to improve speed.***
+{{< /notice >}}
 
 At this point you might wonder why does `_HashedSeq(key)` exist? To reduce the amount of hashing we have to do! If you recall the innards of the `_lru_cache_wrapper` from before, we have a small inner check that looks something like:
 ```python
