@@ -107,7 +107,9 @@ def _lru_cache_wrapper_cleaned(user_function):
 ```
 the only trick here is using the [sentinel](https://en.wikipedia.org/wiki/Sentinel_value) value `object()`; recall that Python dictionaries `.get()` method takes two arguments, the first being the key to find in the dictionary, with the second being the default value to return if that key is not found! Here we return a sentinel which we use to determine whether we have cached this key before, and if not we add it to our cache.
 
-***NOTE: `_lru_cache_wrapper` is a lot more complex if a max size is set and involves some threading!***
+{{< notice note >}}
+`_lru_cache_wrapper` is a lot more complex if a max size is set and involves some threading!
+{{< /notice >}}
 
 ### [Hashing](https://en.wikipedia.org/wiki/Hash_function)
 
@@ -156,14 +158,14 @@ def simple_key(args, kwargs):
     return _HashedSeq(args + (object(),) + tuple([item for item in kwargs.items()]))
 ```
 {{< notice note >}}
-***Interesting factoid alert! The following will result in two caches!***
+Interesting factoid alert! The following will result in two caches!
 ```python
 cached_add(x=1, y=2)
 cached_add(y=2, x=1)
 cached_add.cache_info()
 # >>> CacheInfo(hits=0, misses=2, maxsize=128, currsize=2)
 ```
-***This is due to the fact that sorting of keyword args was switched off to improve speed.***
+This is due to the fact that sorting of keyword args was switched off to improve speed.
 {{< /notice >}}
 
 At this point you might wonder why does `_HashedSeq(key)` exist? To reduce the amount of hashing we have to do! If you recall the innards of the `_lru_cache_wrapper` from before, we have a small inner check that looks something like:
