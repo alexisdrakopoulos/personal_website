@@ -167,9 +167,9 @@ So far we have seen functools as well as joblib, both of which are acceptable fo
 
 [Redis](https://redis.io/) is a popular in-memory database (with on-disk backups available) which is widely used for caching across the modern web. Redis is also not Python specific, though there are Python APIs for it such as [redis-py](https://github.com/redis/redis-py). RealPython covers this library in depth in this [article](https://realpython.com/python-redis/).
 
-Content delivery networks such as [cloudflare](https://www.cloudflare.com/), from which must of the web is served, uses custom [caching solutions](https://developers.cloudflare.com/cache/) to improve latency by hosting cached copies of websites on servers across the world, and providing users with the closest copies.
+Content delivery networks such as [cloudflare](https://www.cloudflare.com/), from which must of the web is served, use custom [caching solutions](https://developers.cloudflare.com/cache/) to improve latency by hosting cached copies of websites on servers across the world, and providing users with the closest copies.
 
-[Dropbox](https://www.dropbox.com/) also implements their own [caching solution](https://dropbox.tech/infrastructure/caching-in-theory-and-practice) which is also an implementation of LRU!
+[Dropbox](https://www.dropbox.com/) also implements their own [caching solution](https://dropbox.tech/infrastructure/caching-in-theory-and-practice) which uses an implementation of LRU!
 
 [Netflix](https://www.netflix.com/) uses a [custom caching approach](https://openconnect.netflix.com/en/) which includes custom hardware deployed at ISPs which store copies of popular content. This reduces the load on the ISP itself as when a user requests a piece of cached content, it can quickly deliver it without needing to fetch it from some other server.
 
