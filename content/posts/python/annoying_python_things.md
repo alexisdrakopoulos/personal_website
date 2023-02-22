@@ -1,6 +1,6 @@
 ---
 title: "Annoying Python Patterns"
-date: 2023-02-18
+date: 2023-02-22
 draft: false
 series: "Python Review"
 tags: ["python"]
@@ -16,7 +16,7 @@ From optional args and returns to placeholder variables, None is the bane of cle
 
 ## could this arg be None? maybe...
 
-Here is the worst example I have ever seen of what optional Nones can do to a code base:
+Here is the worst example I have ever seen of what optional args can do to a code base:
 ```python
 def multiply_potentially_nones(arg1: Optional[float] = None, arg2: Optional[float] = None):
     if arg1 is not None and arg2 is not None:
@@ -44,17 +44,53 @@ x = some_func(x) if x is None else x
 
 ## or
 
-We now come to the first dangerous pattern! Using conditional statements to abuse Pythons truethiness/falsiness of various datatypes.
+We now come to the first dangerous pattern! Using conditional statements to abuse Pythons truethiness/falsiness of various datatypes. In case you aren't aware, here's the behavior that is abused:
 ```python
 print(None or "hi there")
-print(None or "hi there")
-print(None or "hi there")
-print(None or "hi there")
-print(None or "hi there")
-
 ```
-
-
+which outputs:
+```
+>>> hi there
+```
+In production this hides and looks like:
 ```python
 x: dict = x or {}
+```
+which is often hidden tucked away in the return statement.
+
+So why is this so bad?
+
+Not only `None` is falsy!
+```python
+print([] or "hi there")
+print("" or "hi there")
+print({} or "hi there")
+print(0 or "hi there")
+print(0.0 or "hi there")
+```
+print statements are perhaps not the best way to highlight this, you can also do `bool([])`.
+
+So doing:
+```python
+x: dict = x or {}
+```
+will `return {}` if x is any falsy value, rather than a None. This is extremely dangerous, for example imagine our previous func `multiply_potentially_nones`:
+```python
+def multiply_potentially_nones(arg1: Optional[float] = None, arg2: Optional[float] = None):
+    arg1 = arg1 or 1.0
+    arg2 = arg2 or 1.0
+    return arg1*arg2
+
+print(multiply_potentially_nones(5, None))
+>>> 5.0 # wooo!
+print(multiply_potentially_nones(5, 0.0))
+>>> 5.0 # oh dear
+```
+
+# State Machines with Hidden State
+
+```python
+class Model:
+    def __init__(self, *args, **kwargs):
+        pass
 ```
