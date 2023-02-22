@@ -18,7 +18,8 @@ From optional args and returns to placeholder variables, None is the bane of cle
 
 Here is the worst example I have ever seen of what optional args can do to a code base:
 ```python
-def multiply_potentially_nones(arg1: Optional[float] = None, arg2: Optional[float] = None):
+def multiply_potentially_nones(arg1: Optional[float] = None, 
+                               arg2: Optional[float] = None) -> float:
     if arg1 is not None and arg2 is not None:
         return arg1*arg2
     if arg1 is None and arg2 is not None:
@@ -73,7 +74,8 @@ x: dict = x or {}
 ```
 will `return {}` if x is any falsy value, rather than a None. This is extremely dangerous, for example imagine our previous func `multiply_potentially_nones`:
 ```python
-def multiply_potentially_nones(arg1: Optional[float] = None, arg2: Optional[float] = None):
+def multiply_potentially_nones(arg1: Optional[float] = None, 
+                               arg2: Optional[float] = None) -> float:
     arg1 = arg1 or 1.0
     arg2 = arg2 or 1.0
     return arg1*arg2
@@ -97,10 +99,10 @@ class LinearRegression:
     def __init__(self):
         self.model = np.linalg.lstsq
     
-    def fit(self, x: np.ndarray, y: np.ndarray):
+    def fit(self, x: np.ndarray, y: np.ndarray) -> None:
         self.model = lstsq(x, y, rcond=None)[0]
 
-    def predict(self, x: np.ndarray):
+    def predict(self, x: np.ndarray) -> np.ndarray:
         return np.dot(self.model, x)
 ```
 We can now do 
