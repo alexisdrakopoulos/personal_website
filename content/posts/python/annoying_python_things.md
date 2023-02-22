@@ -47,9 +47,6 @@ x = some_func(x) if x is None else x
 We now come to the first dangerous pattern! Using conditional statements to abuse Pythons truethiness/falsiness of various datatypes. In case you aren't aware, here's the behavior that is abused:
 ```python
 print(None or "hi there")
-```
-which outputs:
-```
 >>> hi there
 ```
 In production this hides and looks like:
@@ -89,8 +86,38 @@ print(multiply_potentially_nones(5, 0.0))
 
 # State Machines with Hidden State
 
+This section will be a little longer and very ML specific, so feel free to skip it! I wanted it to be more in depth and give a proper example that is not extremely minimal.
+
+Let's build a simple linear regression model using the handy least squares solver in the NumPy library:
 ```python
-class Model:
-    def __init__(self, *args, **kwargs):
-        pass
+import numpy as np
+from numpy.linalg import lstsq
+
+class LinearRegression:
+    def __init__(self):
+        self.model = np.linalg.lstsq
+    
+    def fit(self, x: np.ndarray, y: np.ndarray):
+        self.model = lstsq(x, y, rcond=None)[0]
+
+    def predict(self, x: np.ndarray):
+        return np.dot(self.model, x)
 ```
+We can now do 
+```python
+num_rows = 50
+num_features = 3
+
+x = np.random.uniform(size=[num_rows, num_features])*10
+# sum of inputs + some noise to make it harder
+y = np.sum(x, axis=1) + np.random.normal(size=num_rows, scale=5)
+
+linear_regression = LinearRegression()
+linear_regression.fit(x, y)
+# output should be 1 + 2 + 3 = 6
+linear_regression.predict(np.array([1, 2, 3]))
+>>> 6.200 # on my machine
+```
+This is a common API followed by most popular ML toolkits, including the [scikit-learn estimators](https://scikit-learn.org/stable/developers/develop.html), [catboost](https://catboost.ai/en/docs/concepts/python-usages-examples), [xgboost](https://xgboost.readthedocs.io/en/stable/) & [lightgbm](https://lightgbm.readthedocs.io/en/v3.3.2/)!
+
+### So what's the issue?
