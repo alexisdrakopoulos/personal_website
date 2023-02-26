@@ -1,8 +1,8 @@
 ---
 title: "Annoying Python Patterns"
-date: 2023-02-22
+date: 2023-02-26
 draft: false
-series: "Python Review"
+series: "Python AntiPatterns"
 tags: ["python"]
 ---
 
@@ -86,40 +86,52 @@ print(multiply_potentially_nones(5, 0.0))
 >>> 5.0 # oh dear
 ```
 
-# State Machines with Hidden State
+# Other Common Antipatterns
 
-This section will be a little longer and very ML specific, so feel free to skip it! I wanted it to be more in depth and give a proper example that is not extremely minimal.
+I'll also include a section detailing common issues
 
-Let's build a simple linear regression model using the handy least squares solver in the NumPy library:
+## Mutable Default Args
+
+Using [mutable](https://en.wikipedia.org/wiki/Mutability) types as default args, such as:
 ```python
-import numpy as np
-from numpy.linalg import lstsq
-
-class LinearRegression:
-    def __init__(self):
-        self.model = np.linalg.lstsq
-    
-    def fit(self, x: np.ndarray, y: np.ndarray) -> None:
-        self.model = lstsq(x, y, rcond=None)[0]
-
-    def predict(self, x: np.ndarray) -> np.ndarray:
-        return np.dot(self.model, x)
+def f(arg1: list = []):
+    ...
 ```
-We can now do 
+is either irresponsible (when exploiting the mutable property is not intended), or hacky!
+
+## Gotta Catch them All!
+
+Unlike Pokemon, you should not catch all your [exceptions](https://docs.python.org/3/tutorial/errors.html).
 ```python
-num_rows = 50
-num_features = 3
-
-x = np.random.uniform(size=[num_rows, num_features])*10
-# sum of inputs + some noise to make it harder
-y = np.sum(x, axis=1) + np.random.normal(size=num_rows, scale=5)
-
-linear_regression = LinearRegression()
-linear_regression.fit(x, y)
-# output should be 1 + 2 + 3 = 6
-linear_regression.predict(np.array([1, 2, 3]))
->>> 6.200 # on my machine
+try:
+    ...
+except:
+    print("Glad we avoided that error!")
 ```
-This is a common API followed by most popular ML toolkits, including the [scikit-learn estimators](https://scikit-learn.org/stable/developers/develop.html), [catboost](https://catboost.ai/en/docs/concepts/python-usages-examples), [xgboost](https://xgboost.readthedocs.io/en/stable/) & [lightgbm](https://lightgbm.readthedocs.io/en/v3.3.2/)!
 
-### So what's the issue?
+## Globals
+
+```python
+x: int = 0
+
+def f():
+    global x
+    x += 1
+```
+
+## `Obj.__magic__`
+
+```python
+x: dict = ...
+x.__len__()
+```
+Python bypasses magic methods for performance
+
+## and many more!
+
+- assigned lambdas
+- methods that should be funcs or staticmethods
+- methods that should be properties
+- overwriting builtins
+- not leveraging object structures for iteration (eg `.items()`)
+etc...
