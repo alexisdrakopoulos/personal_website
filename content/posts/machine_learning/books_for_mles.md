@@ -47,7 +47,7 @@ Randomness (or should we say; [pseudorandomness](https://en.wikipedia.org/wiki/P
 
 [Sheldon Ross](https://amzn.to/41s02Vc) offers an introduction to probability models, though the book is quite slow paced. His other book [First Course in Probability](https://amzn.to/3m3aCSp) is a bit faster paced and covers the fundamentals quickly in the first few chapters.
 
-There exist many more advanced books such as [High Dimensional Probability](https://amzn.to/3Zq7kH8) by Vershynin that cover interesting topics in great depth. These are however not necessary for most.
+There exist many more advanced books such as [High Dimensional Probability by Vershynin](https://amzn.to/3Zq7kH8) and [Probability: A Graduate Course by Gut](https://amzn.to/3IV9lpp) that cover interesting topics in great depth. These are however not necessary for most.
 
 ### Probabilistic Programming
 
@@ -98,17 +98,23 @@ The book designing data intensive applications we mentioned earlier does cover s
 
 ## Machine Learning
 
-### Statistical Learning
+The world of machine learning has, since its inception, been rapidly evolving. Many textbooks are written each year on various topics, however I chose some classics that cover a breadth of key topics focusing on statistical learning and some deep learning. Specific topics such as natural language processing and computer vision are ignored.
 
-Introduction to Statistical Learning
-Machine Learning: A Probabilistic Perspective
+[Probabilistic Machine Learning](https://amzn.to/3IqKSXy) and [Elements of Statistical Learning](https://amzn.to/3m9jOEY) are the two best ML books in my opinion. For the latter, a simpler text called [Introduction to Statistical Learning](https://amzn.to/3ksccgc) exists which covers most of the same topics with less mathematical rigour.
 
-### Advanced/Specialised Books
+[Pattern Recognition and Machine Learning](https://amzn.to/3kvzhi8) is another great classic.
 
-- Elements of Statistical Learning
-- Probabilistic Graphical Models
+A less popular text that I also like is [Machine Learning: A Bayesian and Optimization Perspective](https://amzn.to/3IB57SH) which covers the same classic topics but from a more probabilistic view point.
 
-## Deep Learning
+Some more advanced textbooks that I'd recommend checking out are:
+- [Probabilistic Graphical Models](https://amzn.to/3ydCVAF)
+- [Understanding Machine Learning: From Theory to Algorithms](https://amzn.to/3Iuwwpn)
+- [Foundations of Data Science](https://amzn.to/3KBc0pG)
+- [Graphical Models, Exponential Families, and Variational Inference](https://amzn.to/3kvAru0) provides a great reference for [mean-field theory](https://en.wikipedia.org/wiki/Mean-field_theory), which sadly doesn't have much applicability to modern methods which are more optimization based, but is still a great text.
+- [Information Theory, Inference and Learning Algorithms](https://amzn.to/3xVOdt0) provides an introduction to information theory and bayesian learning & inference.
+- [All of Statistics: A Concise Course in Statistical Inference](https://amzn.to/3m6SYx9) is a fantastic book discussing applied statistical inference.
+
+I wouldn't recommend many deep learning specific books as most resources come in the form of talks and conference proceedings. [Deep Learning by Goodfellow](https://amzn.to/41wd2cH) and [Reinforcement Learning by Sutton](https://amzn.to/3ksxZob) are of good quality and may provide the reader with a good introduction to those topics.
 
 ## General Books
 
