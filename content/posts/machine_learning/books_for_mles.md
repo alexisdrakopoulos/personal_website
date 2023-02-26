@@ -6,28 +6,21 @@ series: "Machine Learning"
 tags: ["machine-learning"]
 ---
 
-This article will try to cover prominent textbooks that may be of interest to machine learning practitioners, with a focus on ML engineers. However, due to the applied mathematics nature of ML, we will include many texts that may be of interest to other engineers & researchers, especially in the non ML subsections.
-
-This list is not comprehensive, and alternatives are proposed for some books. Not all books are perfect for all readers, and many other sources such as blog posts, online video lectures, or written lectures not in the form of books exist and should be leveraged alongside these texts.
-
-Most book lists are sparse in information, which while making them easier to browse, makes it hard to contextualise why a certain book exists in the list. I try to motivate my reasons for including specific books and their alternatives.
-
-Finally, it is impossible to read all of these textbooks, and many topics are not relevant for all readers. If you have any suggestions for alternative books or topics missing from below do reach out!
-
-Do note that the links are referral links to Amazon, and other sellers do exist, but purchasing through these may give me a few cents.
+Lists of "top books to learn ML" exist all over the web. So I thought I'd write my own. This list attempts to cover prominent textbooks that may be of interest to machine learning practitioners, with a focus on ML engineers. Due to the applied mathematics nature of ML, we will include many texts that may be of interest to other engineers & researchers. I make an attempt to motivate the selection of books and offer a little context.
 
 ## Applied Mathematics
 
 Applied mathematics is at the core of scientific computing. We differentiate between applied mathematics and machine learning even though a lot of machine learning texts are basically applied mathematics textbooks. This is just to help simplify navigation.
-The core applied mathematics topics that concern us, as ML practitioners, are numerical linear algebra, numerical methods, probability theory, probabilistic programming and optimization.
+
+The core applied mathematics topics that concern us, as ML practitioners, are; numerical linear algebra, numerical methods, probability theory, probabilistic programming and optimization.
 
 ### Numerical Linear Algebra
 
-Vector and matrix operations are present in almost of all of scientific computing (including ML). Being able to efficiently manipulate these as well as perform mathematical operations is one of the most important components of modern computing. A basic knowledge of linear algebra itself is recommended from texts such as [Introduction to Linear Algebra by Strang](https://amzn.to/3xQK8X4).
+Vector and matrix operations are at the core of most of scientific computing (including ML). Being able to efficiently manipulate matrices is one of the most important components of modern computing. A basic knowledge of linear algebra itself is recommended from texts such as [Introduction to Linear Algebra by Strang](https://amzn.to/3xQK8X4).
 
-The numerical component of this deals with the algorithms & datastructures we have developed for representing and working with vectors and matrices. A popular book introducing the fundamentals is [Numerical Linear Algebra by Trefethen](https://amzn.to/3XXrEic).
+The numerical component of linera algebra deal with the algorithms & datastructures for representing and working with vectors and matrices. A popular book introducing the fundamentals is [Numerical Linear Algebra by Trefethen](https://amzn.to/3XXrEic).
 
-A popular book discussing specifically the algorithms involved in vector & matrix manipulation is [Matrix Computations](https://amzn.to/3xWfdZg). It is not a good source for a first introduction, but a great reference and it's a lot of fun to try implementing the methods.
+A book discussing specifically the algorithms involved in vector & matrix manipulation is [Matrix Computations](https://amzn.to/3xWfdZg). It is not a good source for a first introduction, but a great reference and it's a lot of fun to try implementing the methods.
 
 ### Numerical Methods
 
@@ -43,7 +36,7 @@ There exist several more advanced books such as [handbook of MCMC](https://amzn.
 
 ### Probability Theory
 
-Randomness (or should we say; [pseudorandomness](https://en.wikipedia.org/wiki/Pseudorandomness)) is fundamental to many algorithms in scientific computing. While we don't require a deep theoretical understanding of [sigma algebras](https://en.wikipedia.org/wiki/%CE%A3-algebra), an appreciation for probability theory is highly recommended.
+Randomness (or should we say [pseudorandomness](https://en.wikipedia.org/wiki/Pseudorandomness)) is fundamental to many algorithms in scientific computing. While we don't require a deep theoretical understanding of [sigma algebras](https://en.wikipedia.org/wiki/%CE%A3-algebra), an appreciation for probability theory is highly recommended.
 
 [Sheldon Ross](https://amzn.to/41s02Vc) offers an introduction to probability models, though the book is quite slow paced. His other book [First Course in Probability](https://amzn.to/3m3aCSp) is a bit faster paced and covers the fundamentals quickly in the first few chapters.
 
@@ -108,6 +101,7 @@ Another text that I like is [Machine Learning: A Bayesian and Optimization Persp
 
 Some more advanced textbooks that I'd recommend checking out are:
 - [Probabilistic Graphical Models](https://amzn.to/3ydCVAF)
+- [High Dimensional Probability by Vershynin](https://amzn.to/3Zq7kH8)
 - [Understanding Machine Learning: From Theory to Algorithms](https://amzn.to/3Iuwwpn)
 - [Foundations of Data Science](https://amzn.to/3KBc0pG)
 - [Graphical Models, Exponential Families, and Variational Inference](https://amzn.to/3kvAru0) provides a great reference for [mean-field theory](https://en.wikipedia.org/wiki/Mean-field_theory), which sadly doesn't have much applicability to modern methods which are more optimization based, but is still a great text.
