@@ -61,11 +61,6 @@ From operational research to deep learning, optimization problems are everywhere
 
 The most popular books would be [convex optimization by Boyd](https://amzn.to/3Sw9p25) and [numerical optimization by Nocedal](https://amzn.to/3SDKp9q).
 
-
-### Advanced/Specialised Books
-
-- Markov Chain Monte Carlo
-
 ## Computer Science
 
 Machine Learning Engineers are expected to not only have strong mathematical & machine learning fundamentals, but also a background in computer science, with a focus on production code & deployment.
@@ -99,7 +94,6 @@ Another popular new text is the [System Design Interview](https://amzn.to/3ZeuUH
 Distributed computing is becoming more and more prevalent as single node machines have stopped yielding significant computational gains over time, while interconnects and other messaging methods have seen strong performance improvements. This has naturally led to larger and more complex distributed systems, and therefore a larger ecosystem of software to help leverage these.
 
 The book designing data intensive applications we mentioned earlier does cover some distributed design topics, however not many books cover how to design algorithms which optimally leverage distributed systems. Some classics exist such as [Distributed Algorithms by Lynch](https://amzn.to/3xRBojt) and more modern books such as [Distributed Algorithms bu Fokkink](https://amzn.to/3EFL4kH), however most sources are either in the form of conference talks or articles.
-
 
 
 ## Machine Learning
