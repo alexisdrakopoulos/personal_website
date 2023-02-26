@@ -1,6 +1,6 @@
 baseURL = 'https://alexis-personal-site.netlify.app/'
 languageCode = 'en-us'
-title = 'My New Hugo Site'
+title = 'Personal Website'
 theme = ["hugo-notice2", "poison"]
 paginate = 10
 pluralizelisttitles = false                           # removes the automatically appended "s" on sidebar entries
