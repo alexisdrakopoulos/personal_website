@@ -100,11 +100,11 @@ The book designing data intensive applications we mentioned earlier does cover s
 
 The world of machine learning has, since its inception, been rapidly evolving. Many textbooks are written each year on various topics, however I chose some classics that cover a breadth of key topics focusing on statistical learning and some deep learning. Specific topics such as natural language processing and computer vision are ignored.
 
-[Probabilistic Machine Learning](https://amzn.to/3IqKSXy) and [Elements of Statistical Learning](https://amzn.to/3m9jOEY) are the two best ML books in my opinion. For the latter, a simpler text called [Introduction to Statistical Learning](https://amzn.to/3ksccgc) exists which covers most of the same topics with less mathematical rigour.
+[Probabilistic Machine Learning](https://amzn.to/3IqKSXy) and [Elements of Statistical Learning](https://amzn.to/3m9jOEY) are the two best ML books in my opinion. For the latter, a simpler text called [Introduction to Statistical Learning](https://amzn.to/3ksccgc) exists which covers most of the same topics with less mathematical rigour. [Pattern Recognition and Machine Learning](https://amzn.to/3kvzhi8) is another great classic.
 
-[Pattern Recognition and Machine Learning](https://amzn.to/3kvzhi8) is another great classic.
+[Gaussian Processes for Machine Learning by Rasmussen](https://amzn.to/3KEBxhy) is also worth a look, though it focuses on [kernel machines](https://en.wikipedia.org/wiki/Kernel_method) which are no longer very popular.
 
-A less popular text that I also like is [Machine Learning: A Bayesian and Optimization Perspective](https://amzn.to/3IB57SH) which covers the same classic topics but from a more probabilistic view point.
+Another text that I like is [Machine Learning: A Bayesian and Optimization Perspective](https://amzn.to/3IB57SH) which covers the same classic topics but from a more probabilistic view point.
 
 Some more advanced textbooks that I'd recommend checking out are:
 - [Probabilistic Graphical Models](https://amzn.to/3ydCVAF)
