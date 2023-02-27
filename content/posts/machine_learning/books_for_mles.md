@@ -1,6 +1,6 @@
 ---
 title: "Books for Machine Learning Engineers"
-date: 2023-02-26
+date: 2023-02-27
 draft: false
 series: "Machine Learning"
 tags: ["machine-learning"]
