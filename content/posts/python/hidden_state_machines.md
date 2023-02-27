@@ -52,7 +52,7 @@ We implicitly assume that our objects will be used in a specific sequential mann
 We can visualize this on a flow chart of available states that can be reached via the method calls available to us in that given state:
 {{< mermaid >}}
 flowchart LR
-    y("Uninitialized Model") --> |"`__init__`"| h("Initialized Model")
+    y("Uninitialized Model") --> |"__init__()"| h("Initialized Model")
     h --> |"fit()"| r("Fit Model")
     r --> |"fit()"| r
     r --> |"predict()"| su[/"np.ndarray"/]
