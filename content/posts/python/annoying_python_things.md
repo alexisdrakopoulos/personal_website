@@ -38,9 +38,12 @@ which is mildly cleaner, it's still painful to read and quite hacky.
 ## if not None
 
 This brings us to the 
-
 ```python
-x = some_func(x) if x is None else x
+x = x if x is not None else replacement_var
+```
+or
+```python
+x = replacement_var if x is None else x
 ```
 
 ## or
