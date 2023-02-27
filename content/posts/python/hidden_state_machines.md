@@ -49,12 +49,36 @@ This is a common API followed by most popular ML toolkits, including the [scikit
 
 We implicitly assume that our objects will be used in a specific sequential manner, with `fit` only being called after initialization, and `predict` only being called after `fit`.  If one were to try to call `predict` prior to `fit` they'd be faced with an error! We also assume that `len` is only called once the model has been `fit`.
 
-Let's draw this out in a graph!
+We can visualize this on a flow chart of available states that can be reached via the method calls available to us in that given state:
 {{< mermaid >}}
 flowchart LR
     y("Uninitialized Model") --> |"`__init__`"| h("Initialized Model")
     h --> |"fit()"| r("Fit Model")
     r --> |"fit()"| r
-    r --> |"predict()"| su[/"Prediction"/]
+    r --> |"predict()"| su[/"np.ndarray"/]
     r --> |"__len__()"| suf[/"int"/]
 {{< /mermaid >}}
+So from a fitted model we can call `predict` and `len` and so on.
+
+How is this type of restriction implemented in production code bases? We can turn to some of the OSS libraries mentioned earlier to investigate.
+
+Let's pick sklearn:
+```python
+from sklearn.linear_model import LinearRegression
+model = LinearRegression()
+model.predict(np.array([1, 2, 3]))
+>>> NotFittedError: This LinearRegression instance is not fitted yet. Call 'fit' with appropriate arguments before using this estimator.
+```
+We seem to get a custom `NotFittedError`, let's have a look as to how this is implemented by following the call graph.
+
+When we call `.predict`, we actually call [`self._decision_function(X)`](https://github.com/scikit-learn/scikit-learn/blob/main/sklearn/linear_model/_base.py#L354) which calls a function: [`check_is_fitted`](https://github.com/scikit-learn/scikit-learn/blob/e6b46675318950fd5138aaf29ba76f6ce2fd91b8/sklearn/utils/validation.py#L1322).
+
+This function claims to do the following in its docstring:
+```text
+Checks if the estimator is fitted by verifying the presence of
+fitted attributes (ending with a trailing underscore) and otherwise
+raises a NotFittedError with the given message.
+```
+The code seems to support this, we set a variable `fitted` which is of type boolean by checking all required attributes.
+
+So it seems like the `fitted` state we discussed is manually checked by verifying the presence of expected attributes. While this approach works, I think we can quite naturally see that it feels quite unaesthetic. We are not enforcing the state of our class through some native functionality, but rather forcefully checking the presence of some state by checking that it looks like it's in a fitted state.
