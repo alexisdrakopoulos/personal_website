@@ -18,6 +18,9 @@
     {{- end }}
     <meta name="description" content="{{if .IsHome}}{{ $.Site.Params.description }}{{else}}{{.Description}}{{end}}" />
 
+    <!-- Favicon stuff -->
+    {{ partial "head/favicon.html" . }}
+
     <!-- CSS stylesheets -->
     {{ partial "head/stylesheets.html" . }}
 
