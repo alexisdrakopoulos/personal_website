@@ -4,6 +4,7 @@ title = 'Personal Website'
 theme = ["hugo-notice2", "poison"]
 paginate = 10
 pluralizelisttitles = false                           # removes the automatically appended "s" on sidebar entries
+googleAnalytics = 'G-MN5YMXESW2'
 
 [params]
 brand = "Alexis Drakopoulos"              # name of your site - appears in the sidebar
