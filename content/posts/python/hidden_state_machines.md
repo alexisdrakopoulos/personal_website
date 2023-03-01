@@ -1,12 +1,12 @@
 ---
-title: "Hidden State Machines"
+title: "ML Models as State Machines"
 date: 2023-02-26
 draft: false
-series: "Python AntiPatterns"
+series: "Machine Learning Design Patterns"
 tags: ["python", "machine-learning"]
 ---
 
-This article will be quite ML specific, though this issue is prevalent across most of scientific computing. We posit that a lot of scientific computing model classes are in fact [finite state machines](https://en.wikipedia.org/wiki/Finite-state_machine)! My goal is not to convince you that this has some deeper implication, but rather the annoyances of having to deal with objects of which certain attributes/methods are only valid when the object is in a specific state.
+In this article we posit that a lot of scientific computing models are in fact [finite state machines](https://en.wikipedia.org/wiki/Finite-state_machine). My goal is not to convince you that this has some deeper implication, but rather to discuss the resulting design implications and review the current approaches in many OSS libraries.
 
 ## Models
 
