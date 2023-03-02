@@ -82,3 +82,35 @@ raises a NotFittedError with the given message.
 The code seems to support this, we set a variable `fitted` which is of type boolean by checking all required attributes.
 
 So it seems like the `fitted` state we discussed is manually checked by verifying the presence of expected attributes. While this approach works, I think we can quite naturally see that it feels quite unaesthetic. We are not enforcing the state of our class through some native functionality, but rather forcefully checking the presence of some state by checking that it looks like it's in a fitted state.
+
+Furthermore it forces us to add extra lines of code that have the sole purpose of checking we are within a given state when calling specific methods or properties.
+
+The sklearn approach would look something like:
+```python
+import numpy as np
+from numpy.linalg import lstsq
+
+class NotFittedError(Exception):
+    pass
+
+class LinearRegression:
+    def __init__(self):
+        self.is_fitted = False
+        self.model = np.linalg.lstsq
+    
+    def fit(self, x: np.ndarray, y: np.ndarray) -> None:
+        
+        self.model = lstsq(x, y, rcond=None)[0]
+        self.is_fitted = True
+
+    def predict(self, x: np.ndarray) -> np.ndarray:
+        if not self.is_fitted:
+            raise NotFittedError("Model must be .fit() before calling .predict()")
+        return np.dot(self.model, x)
+
+    def __len__(self):
+        if not self.is_fitted:
+            raise NotFittedError("Model must be .fit() before calling len()")
+        return len(self.model)
+```
+where we use the `is_fitted` boolean attribute with custom error raises whenever a method is inappropriately called.
